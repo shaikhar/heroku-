@@ -15,7 +15,7 @@ public class SaveUser {
     @Autowired
     repositoryforapi apirepo;
 
-    Getapiuser getapiuser=new Getapiuser();
+    Getapiuser getapiuser;
 
     @GetMapping("/save")
 
