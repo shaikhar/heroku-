@@ -17,7 +17,7 @@ import javax.persistence.Id;
 @Entity
 public class Getapiuser {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     public int id;
     public String name;
     public String email;
