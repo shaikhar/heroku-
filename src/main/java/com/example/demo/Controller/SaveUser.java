@@ -23,7 +23,7 @@ public class SaveUser {
 
         UUID uuid= UUID.randomUUID();
 
-//getapiuser.setId(78);
+getapiuser.setId(uuid.toString());
         getapiuser.setGender("Male");
         getapiuser.setEmail(uuid.toString() +"@gmail.com");
         getapiuser.setName(uuid.toString());
