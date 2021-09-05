@@ -13,15 +13,22 @@ import javax.persistence.Id;
 @Data
 
 @NoArgsConstructor
-@AllArgsConstructor
+
 
 @Entity
 public class Getapiuser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public String id;
+    public int id;
     public String name;
     public String email;
     public String gender;
     public String status;
+
+    public Getapiuser(String name, String email, String gender, String status) {
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+        this.status = status;
+    }
 }

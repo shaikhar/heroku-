@@ -15,8 +15,6 @@ public class SaveUser {
     @Autowired
     repositoryforapi apirepo;
 
-    Getapiuser getapiuser;
-
     @GetMapping("/save")
 
     public ResponseEntity<?> saveuser() {
@@ -24,10 +22,14 @@ public class SaveUser {
         UUID uuid= UUID.randomUUID();
 
 //getapiuser.setId(78);
-        getapiuser.setGender("Male");
-        getapiuser.setEmail(uuid.toString() +"@gmail.com");
-        getapiuser.setName(uuid.toString());
-        getapiuser.setStatus("Best Technical Person ");
+
+//        getapiuser.setGender("Male");
+//        getapiuser.setEmail(uuid.toString() +"@gmail.com");
+//        getapiuser.setName(uuid.toString());
+//        getapiuser.setStatus("Best Technical Person ");
+
+        Getapiuser getapiuser= new Getapiuser("Male","test@gmail.com","Atik", "Best Technical Person ");
+
 
         apirepo.save(getapiuser);
 
