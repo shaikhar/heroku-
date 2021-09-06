@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 
@@ -16,9 +13,10 @@ import javax.persistence.Id;
 
 
 @Entity
+@SequenceGenerator(name="empid", sequenceName = "demo",initialValue = 2000,allocationSize = 2,schema = "demo")
 public class Getapiuser {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "empid")
     public int id;
     public String name;
     public String email;
