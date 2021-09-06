@@ -13,7 +13,7 @@ import javax.persistence.*;
 
 
 @Entity
-@SequenceGenerator(name="empid", sequenceName = "demo",initialValue = 2000,allocationSize = 2,schema = "demo")
+@SequenceGenerator(name="empid", initialValue = 2000)  //(name="empid", sequenceName = "demo",initialValue = 2000,allocationSize = 2,schema = "demo")
 public class Getapiuser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "empid")
