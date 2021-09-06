@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
 import java.util.UUID;
 @RestController
 public class SaveUser {
@@ -20,7 +21,9 @@ public class SaveUser {
     public ResponseEntity<?> saveuser() {
 
         UUID uuid= UUID.randomUUID();
+        Random random=new Random();
 
+        int sr= random.nextInt(10000);
 //getapiuser.setId(78);
 
 //        getapiuser.setGender("Male");
@@ -28,13 +31,13 @@ public class SaveUser {
 //        getapiuser.setName(uuid.toString());
 //        getapiuser.setStatus("Best Technical Person ");
 
-        Getapiuser getapiuser= new Getapiuser("Atik",uuid.toString()+"@gmail.com","M", "Best Technical Person ");
-   ;
-    getapiuser.setName( getapiuser.getId() + " ) Atik");
+        Getapiuser getapiuser= new Getapiuser("Atik"+sr,uuid.toString()+"@gmail.com","M", "Best Technical Person ");
+
+
 
         apirepo.save(getapiuser);
 
-        return new ResponseEntity<>("HI I have saved USer "+getapiuser, HttpStatus.OK);
+        return new ResponseEntity<>(  getapiuser, HttpStatus.OK);
 
          }
 }
