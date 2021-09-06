@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +19,8 @@ import java.util.Optional;
 public class GetAllUser {
     @Autowired
     private repositoryforapi rs;
+    @Autowired
+    private Getapiuser getapiuser;
 
     @GetMapping("/getall")
 
@@ -27,12 +30,21 @@ public class GetAllUser {
         return ResponseEntity.ok().body(list);
     }
 
+
+    @GetMapping ("/get/{id}")
+    public ResponseEntity<?> getuserbyidget(@PathVariable int id) {
+        System.out.println(id);
+        Getapiuser byId = rs.getById(id);
+        // Optional byIdop= Optional.of(byId);
+        return ResponseEntity.ok(byId);
+
+    }
     @PutMapping ("/get/{id}")
     public ResponseEntity<?> getuserbyid(@PathVariable int id) {
         System.out.println(id);
-        Getapiuser byId = rs.getById(id);
+        getapiuser = rs.getById(id);
        // Optional byIdop= Optional.of(byId);
-        return ResponseEntity.ok(byId);
+        return ResponseEntity.ok(getapiuser);
 
     }
 }
