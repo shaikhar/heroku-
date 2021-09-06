@@ -28,8 +28,9 @@ public class SaveUser {
 //        getapiuser.setName(uuid.toString());
 //        getapiuser.setStatus("Best Technical Person ");
 
-        Getapiuser getapiuser= new Getapiuser("Male","test@gmail.com","Atik", "Best Technical Person ");
-
+        Getapiuser getapiuser= new Getapiuser("Atik",uuid.toString()+"@gmail.com","M", "Best Technical Person ");
+   ;
+    getapiuser.setName( getapiuser.getId() + " ) Atik");
 
         apirepo.save(getapiuser);
 
