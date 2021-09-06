@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
 import java.util.UUID;
 @RestController
+
 public class SaveUser {
 
     @Autowired
@@ -23,7 +25,7 @@ public class SaveUser {
         UUID uuid= UUID.randomUUID();
         Random random=new Random();
 
-        int sr= random.nextInt(10000);
+        int sr= random.nextInt(10000) + 20000;
 //getapiuser.setId(78);
 
 //        getapiuser.setGender("Male");
