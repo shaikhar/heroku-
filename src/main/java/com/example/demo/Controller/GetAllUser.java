@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Model.Getapiuser;
 import com.example.demo.repositoryforapi;
 import io.swagger.models.Response;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,18 +33,20 @@ public class GetAllUser {
 
 
     @GetMapping ("/get/{id}")
-    public ResponseEntity<?> getuserbyidget(@PathVariable int id) {
+    public ResponseEntity<?> getuserbyidget(@PathVariable int id) throws MyCustomeException {
         System.out.println(id);
+
         Getapiuser byId = rs.getById(id);
         // Optional byIdop= Optional.of(byId);
         return ResponseEntity.ok(byId);
 
     }
     @PutMapping ("/get/{id}")
-    public ResponseEntity<?> getuserbyid(@PathVariable int id) {
+    public ResponseEntity<?> getuserbyid(@PathVariable int id) throws Exception {
         System.out.println(id);
         getapiuser = rs.getById(id);
-       // Optional byIdop= Optional.of(byId);
+
+        // Optional byIdop= Optional.of(byId);
         return ResponseEntity.ok(getapiuser);
 
     }
