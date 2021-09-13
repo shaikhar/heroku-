@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.HttpURLConnection;
@@ -14,13 +15,13 @@ import java.net.URL;
 public class Hitter {
     private String message;
 
-    @GetMapping("/hitit")
-    public String hitit()
+    @GetMapping("/hitit/{hitint}")
+    public ResponseEntity<?> hitit(@PathVariable int hitint)
     {
-        int hitint=30;
+
 //        return "Inside hit it ";
         try{
-            URL url=new URL("https://ultimateerp.herokuapp.com/contact");
+            URL url=new URL("https://demoatik.herokuapp.com/save");
             // URL url=new URL("http://localhost:8080/contact");
             //HttpURLConnection huc=(HttpURLConnection)url.openConnection();
             for(int i=1;i<=hitint;i++){
@@ -35,7 +36,7 @@ public class Hitter {
             message = e.getMessage();
         }
 
-        return "I am Hitted URL "+ hitint +" times wih response code of   "+message;
+        return ResponseEntity.ok("I have hitted url with "+hitint+ "time and \n Created  "+hitint+ "Users ");
     }
 
 
